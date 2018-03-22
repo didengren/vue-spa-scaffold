@@ -1,0 +1,125 @@
+@import "_variables";
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: @font-family;
+  font-size: 0.16rem;
+  line-height: @line-height-base;
+  color: @text-color;
+  background-color: @body-background;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input::-ms-clear, input::-ms-reveal {
+  display: none;
+}
+
+a {
+  color: @link-color;
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: color @transition-time ease;
+
+  &:hover {
+    color: @link-hover-color;
+  }
+
+  &:active {
+    color: @link-hover-color;
+  }
+
+  &:active,
+  &:hover {
+    outline: 0;
+    text-decoration: none;
+  }
+
+  &[disabled] {
+    color: #ccc;
+    cursor: @cursor-disabled;
+    pointer-events: none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, b{
+  font-weight: normal;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: @code-family;
+}
+
+img{
+  border: none;
+  display: block;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{
+  color: @placeholder-color;
+}
+input:-moz-placeholder, textarea:-moz-placeholder{
+  color: @placeholder-color;
+}
+input::-moz-placeholder, textarea::-moz-placeholder{
+  color: @placeholder-color;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder{
+  color: @placeholder-color;
+}
+
+/*清除浮动*/
+.clearfloat:after{
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
+.clearfloat{
+  zoom: 1;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.click-disabled{
+  pointer-events: none;
+}
