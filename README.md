@@ -29,8 +29,6 @@ npm test
 
 ## 目录结构
 
-clone 之后只需要修改 src 目录下的文件即可，enjoy it!
-
 ```
 ├── build/
 ├── config/
