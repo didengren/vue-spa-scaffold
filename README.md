@@ -45,9 +45,9 @@ npm test
 │   └── store/                            // vue的状态管理模块
 │   └── tools/                            // 工具类 包含常用方法
 │   └── views/                            // 页面组件
-│   └── App.vue/                          // 根组件
-│   └── main.js/                          // 入口 vue实例化
-├── static/                               //业务代码外静态资源 打包后会合并进项目
+│   └── App.vue                           // 根组件
+│   └── main.js                           // 入口 vue实例化
+├── static/                               // 业务代码外静态资源 打包后会合并进项目
 ├── test/
 ├── .babelrc
 ├── .editorconfig
