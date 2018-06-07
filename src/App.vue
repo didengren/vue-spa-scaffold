@@ -20,6 +20,7 @@ text="加载中..."></loading> -->
 <script>
   import {mapState} from 'vuex'
   // import {Toast, Loading} from 'vux'
+  import native from '@/tools/native-api.min.js'
   export default {
     name: 'app',
     components: {
@@ -37,7 +38,12 @@ computed: {
     isLoading: state => state.base.isLoading
   })
 },
-mounted () {},
+created () {
+  native.hideFloat()
+  native.hideNav()
+  native.changeColor([36, 194, 161, 1])
+  native.fullscreen()
+},
 watch: {
   loading (newVal, oldVal) {
     if (!newVal) {

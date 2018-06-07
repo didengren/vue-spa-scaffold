@@ -1,10 +1,11 @@
 var path = require('path')
 var config = require('../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var matchEP = require('../config/matchEnvPub')
 
 exports.assetsPath = function (_path) {
-  var assetsSubDirectory = process.env.NODE_ENV === 'production'
-    ? config.build.assetsSubDirectory
+  var assetsSubDirectory = matchEP.matchEnvPub() // process.env.NODE_ENV === 'production'
+    ? matchEP.subProp().assetsSubDirectory
     : config.dev.assetsSubDirectory
   return path.posix.join(assetsSubDirectory, _path)
 }
@@ -15,7 +16,7 @@ exports.cssLoaders = function (options) {
   var cssLoader = {
     loader: 'css-loader',
     options: {
-      minimize: process.env.NODE_ENV === 'production',
+      minimize: matchEP.matchEnvPub(), // process.env.NODE_ENV === 'production'
       sourceMap: options.sourceMap
     }
   }

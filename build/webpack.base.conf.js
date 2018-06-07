@@ -6,6 +6,10 @@ var projectRoot = path.resolve(__dirname, '../')
 
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+var matchEP = require('../config/matchEnvPub')
+var entryDir = process.env.NODE_ENV === 'development' ?
+  './src/main.js' :
+  './src/main-build.js'
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -13,13 +17,13 @@ function resolve(dir) {
 
 let webpackConfig = {
   entry: {
-    app: './src/main.js'
+    app: entryDir
   },
   output: {
-    path: config.build.assetsRoot,
+    path: matchEP.subProp().assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
+    publicPath: matchEP.matchEnvPub() // process.env.NODE_ENV === 'production'
+      ? matchEP.subProp().assetsPublicPath
       : config.dev.assetsPublicPath
   },
   resolve: {
@@ -67,10 +71,10 @@ let webpackConfig = {
         }
       }
     ]
-  },
-  performance: {
-    hints: false
   }
+  // performance: {
+  //   hints: 'warning'
+  // }
 }
 
 module.exports = webpackConfig
